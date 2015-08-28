@@ -34,7 +34,7 @@
         self.animationDuration = 3;
         self.pulseInterval = 0;
         self.repeatCount = repeatCount;
-        self.backgroundColor = [[UIColor colorWithRed:0.000 green:0.478 blue:1.000 alpha:1] CGColor];
+        self.borderColor = [[UIColor colorWithRed:0.000 green:0.478 blue:1.000 alpha:1] CGColor];
         self.useTimingFunction = YES;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
@@ -96,19 +96,6 @@
     NSArray *animations = @[scaleAnimation, opacityAnimation];
     
     self.animationGroup.animations = animations;
-    self.animationGroup.delegate = self;
-}
-
-
-// =============================================================================
-#pragma mark - CAAnimation Delegate
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-
-	if (flag) {
-        [self removeAllAnimations];
-        [self removeFromSuperlayer];
-	}
 }
 
 @end

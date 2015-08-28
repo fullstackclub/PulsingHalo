@@ -71,6 +71,11 @@
  */
 @property (nonatomic, assign) BOOL useTimingFunction;
 
+/**
+ *	The default value of this property is @c 1.
+ */
+@property (nonatomic, assign) CGFloat borderWidthForSublayer;
+
 
 
 - (id)initWithHaloLayerNum:(int)num andStartInterval:(NSTimeInterval)interval;

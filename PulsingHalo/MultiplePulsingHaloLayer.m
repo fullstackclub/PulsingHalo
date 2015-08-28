@@ -28,6 +28,7 @@
         _animationRepeatCount = INFINITY;
         _radius = 60;
         _useTimingFunction = YES;
+        _borderWidthForSublayer = 1.0;
         self.backgroundColor = [[UIColor clearColor] CGColor];
     }
     return self;
@@ -36,7 +37,7 @@
 - (void)setHaloLayerColor:(CGColorRef)backgroundColor {
     _haloLayerColor = CGColorRetain(backgroundColor);
     for (PulsingHaloLayer *layer in self.sublayers) {
-        layer.backgroundColor = backgroundColor;
+        layer.borderColor = backgroundColor;
     }
 }
 
@@ -70,7 +71,8 @@
             layer.fromValueForRadius = self.fromValueForRadius;
             layer.keyTimeForHalfOpacity = self.keyTimeForHalfOpacity;
             layer.pulseInterval = self.pulseInterval;
-            layer.backgroundColor = self.haloLayerColor;
+            layer.borderWidth = self.borderWidthForSublayer;
+            layer.borderColor = self.haloLayerColor;
             layer.useTimingFunction = self.useTimingFunction;
             [self addSublayer:layer];
         });
